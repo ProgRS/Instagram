@@ -32,23 +32,35 @@
         android:layout_height="60dp"
         android:contentDescription="@null"/>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/login_edit_email_input"
+       app:hintEnabled="false"
+      style="@style/Theme.Instagram.FormEditTextInput">
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/login_edit_email"
         style="@style/Theme.Instagram.FormEditText"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:autofillHints="@null"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_edit_password_input"
+        app:hintEnabled="false"
+        style="@style/Theme.Instagram.FormEditTextInput">
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/login_edit_password"
         style="@style/Theme.Instagram.FormEditText"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:autofillHints="@null"/>
-
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
        android:id="@+id/login_btn_enter"
         style="@style/Theme.Instagram.Button"
+        android:enabled="false"
         android:text="@string/enter"
         />
     <FrameLayout
