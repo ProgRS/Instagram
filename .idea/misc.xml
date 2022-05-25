@@ -10,8 +10,11 @@
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_insta_grid.xml" value="0.1195" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_insta_heart.xml" value="0.1195" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_insta_home.xml" value="0.1195" />
-        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/button_loading.xml" value="0.25" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_register_email.xml" value="0.1661600810536981" />
       </map>
     </option>
   </component>
