@@ -10,11 +10,20 @@
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_insta_grid.xml" value="0.1195" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_insta_heart.xml" value="0.1195" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_insta_home.xml" value="0.1195" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/top_bottom_border.xml" value="0.1285" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_main.xml" value="0.14767932489451477" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/button_loading.xml" value="0.25" />
-        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_register_email.xml" value="0.1661600810536981" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/dialog_custom.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_register_email.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_register_name_password.xml" value="0.11486486486486487" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_register_photo.xml" value="0.18" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_register_welcome.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/item_profile_grid.xml" value="0.1661600810536981" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/menu/menu_bottom_nav.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/menu/menu_profile_bottom_nav.xml" value="0.18703703703703703" />
       </map>
     </option>
   </component>
