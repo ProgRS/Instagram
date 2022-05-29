@@ -12,12 +12,18 @@ import androidx.fragment.app.Fragment
 import co.tiagoaguiar.course.instagram.R
 import co.tiagoaguiar.course.instagram.commom.util.TxtWatcher
 import co.tiagoaguiar.course.instagram.databinding.ActivityLoginBinding
+import co.tiagoaguiar.course.instagram.login.Login
+import co.tiagoaguiar.course.instagram.login.presentation.LoginPresenter
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class LoginActivity : AppCompatActivity() {
+
+
+class LoginActivity : AppCompatActivity(), Login.View {
 
   private lateinit var binding: ActivityLoginBinding
+
+  override lateinit var presenter: Login.Presenter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -26,29 +32,65 @@ class LoginActivity : AppCompatActivity() {
 
     setContentView(binding.root)
 
+    presenter = LoginPresenter(this)
+
     with(binding) {
          loginEditEmail.addTextChangedListener(watcher)
-         loginEditPassword.addTextChangedListener(watcher)
+         loginEditEmail.addTextChangedListener(TxtWatcher {
+             displayEmailFailure(null)
+
+         })
+
+        loginEditPassword.addTextChangedListener(watcher)
+        loginEditPassword.addTextChangedListener(TxtWatcher {
+            displayPasswordFailure(null)
+        })
+
 
          loginBtnEnter.setOnClickListener {
-         loginBtnEnter.showProgress(true)
 
-         loginEditEmailInput.error = "Esse e-mail é invalido"
+           presenter.login(loginEditEmail.text.toString(), loginEditPassword.text.toString())
 
-         loginEditPasswordInput.error = "Senha Incorreta"
 
-        Handler(Looper.getMainLooper()).postDelayed({
-           loginBtnEnter.showProgress(false)
-         }, 2000)
+         //CHAMAR O PRESENT
+
+        //Handler(Looper.getMainLooper()).postDelayed({
+       //    loginBtnEnter.showProgress(false)
+       //  }, 2000)
         }
       }
     }
 
+    override fun onDestroy() {
+        presenter.onDestroy()
+        super.onDestroy()
+    }
 
 
   private val watcher = TxtWatcher{
 
-      binding.loginBtnEnter.isEnabled = it.isNotEmpty()
+      binding.loginBtnEnter.isEnabled = binding.loginEditEmail.text.toString().isNotEmpty()
+              && binding.loginEditPassword.text.toString().isNotEmpty()
 
   }
+
+    override fun showProgress(enabled: Boolean) {
+        binding.loginBtnEnter.showProgress(enabled)
+    }
+
+    override fun displayEmailFailure(emailError: Int?) {
+        binding.loginEditEmailInput.error = emailError?.let { getString(it) }
+    }
+
+    override fun displayPasswordFailure(passwordError: Int?) {
+        binding.loginEditPasswordInput.error = passwordError?.let { getString(it)}
+    }
+
+    override fun onUserAuthenticated() {
+       //IR PARA TELA PRINCIPAL
+    }
+
+    override fun onUserUnauthorized() {
+        //MOSTRAR UM ALERTA
+    }
 }
