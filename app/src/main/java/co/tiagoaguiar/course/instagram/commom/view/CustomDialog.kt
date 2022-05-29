@@ -8,23 +8,23 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import co.tiagoaguiar.course.instagram.R
+import co.tiagoaguiar.course.instagram.databinding.DialogCustomBinding
 
 class CustomDialog(context: Context) : Dialog(context){
 
-    private lateinit var dialogLinearLayout: LinearLayout
+    private lateinit var binding: DialogCustomBinding
+
     private lateinit var txtButtons: Array<TextView>
-    private lateinit var txtTitle: TextView
-
-
     private var titleId: Int? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialog_custom)
 
-        dialogLinearLayout = findViewById(R.id.dialog_container)
-        txtTitle = findViewById(R.id.dialog_title)
+
+        binding = DialogCustomBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
     }
 
@@ -49,15 +49,16 @@ class CustomDialog(context: Context) : Dialog(context){
     override fun show() {
         super.show()
 
+
         titleId?.let{
-            txtTitle.setText(it)
+            binding.dialogTitle.setText(it)
         }
 
         for(textView in txtButtons){
 
              val layoutParams   = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
              layoutParams.setMargins(30,50,30,50)
-            dialogLinearLayout.addView(textView, layoutParams)
+            binding.dialogContainer.addView(textView, layoutParams)
         }
     }
 
