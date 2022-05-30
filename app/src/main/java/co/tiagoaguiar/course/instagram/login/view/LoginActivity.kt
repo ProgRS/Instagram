@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import co.tiagoaguiar.course.instagram.R
+import co.tiagoaguiar.course.instagram.commom.base.DependencyInjector
 import co.tiagoaguiar.course.instagram.commom.util.TxtWatcher
 import co.tiagoaguiar.course.instagram.databinding.ActivityLoginBinding
 import co.tiagoaguiar.course.instagram.login.Login
@@ -19,6 +20,7 @@ import co.tiagoaguiar.course.instagram.login.data.FakeDataSource
 import co.tiagoaguiar.course.instagram.login.data.LoginRepository
 import co.tiagoaguiar.course.instagram.login.presentation.LoginPresenter
 import co.tiagoaguiar.course.instagram.main.view.MainActivity
+import co.tiagoaguiar.course.instagram.register.view.RegisterActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -37,8 +39,8 @@ class LoginActivity : AppCompatActivity(), Login.View {
 
     setContentView(binding.root)
 
-    val repository = LoginRepository(FakeDataSource())
-    presenter = LoginPresenter(this, repository)
+
+    presenter = LoginPresenter(this, DependencyInjector.loginRepository())
 
     with(binding) {
          loginEditEmail.addTextChangedListener(watcher)
@@ -64,6 +66,11 @@ class LoginActivity : AppCompatActivity(), Login.View {
        //    loginBtnEnter.showProgress(false)
        //  }, 2000)
         }
+
+        loginTxtRegister.setOnClickListener{
+            goToRegisterScreen()
+        }
+
       }
     }
 
@@ -79,6 +86,11 @@ class LoginActivity : AppCompatActivity(), Login.View {
               && binding.loginEditPassword.text.toString().isNotEmpty()
 
   }
+
+    private fun goToRegisterScreen(){
+        startActivity(Intent(this, RegisterActivity::class.java))
+    }
+
 
     override fun showProgress(enabled: Boolean) {
         binding.loginBtnEnter.showProgress(enabled)

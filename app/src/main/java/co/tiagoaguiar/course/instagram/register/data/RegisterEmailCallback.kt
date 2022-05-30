@@ -1,9 +1,9 @@
-package co.tiagoaguiar.course.instagram.login.data
+package co.tiagoaguiar.course.instagram.register.data
 
 import co.tiagoaguiar.course.instagram.commom.model.UserAuth
 
-interface LoginCallback {
-    fun onSuccess(userAuth: UserAuth)
+interface RegisterEmailCallback {
+    fun onSuccess()
     fun onFailure(message: String)
     fun onComplete()
 
