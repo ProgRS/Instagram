@@ -1,11 +1,8 @@
 package co.tiagoaguiar.course.instagram.register.data
 
-import co.tiagoaguiar.course.instagram.login.data.LoginCallback
-import javax.sql.CommonDataSource
+class RegisterRepository(private val dataSource: RegisterDataSource) {
 
-class RegisterEmailRepository(private val dataSource: RegisterEmailDataSource) {
-
-    fun create(email: String,  callback: RegisterEmailCallback){
+    fun create(email: String,  callback: RegisterCallback){
         // vai ser responsavel sobre o que fzer com estes dados
         // servidor ou banco de dados local
         //pode salvar localmente algum dado
@@ -16,5 +13,13 @@ class RegisterEmailRepository(private val dataSource: RegisterEmailDataSource) {
 
 
     }
+
+    fun create(email: String, name:String, password: String , callback: RegisterCallback){
+
+        dataSource.create(email,name, password,  callback)
+
+
+    }
+
 
 }
