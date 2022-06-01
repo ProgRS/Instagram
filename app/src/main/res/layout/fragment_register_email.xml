@@ -46,7 +46,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <co.tiagoaguiar.course.instagram.login.view.LoadingButton
+            <co.tiagoaguiar.course.instagram.commom.view.LoadingButton
                 android:id="@+id/register_btn_next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,6 +68,7 @@
 
     <TextView
         android:text="@string/already_has_account"
+        android:textColor="@color/black"
         android:id="@+id/register_txt_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

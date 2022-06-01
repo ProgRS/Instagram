@@ -20,9 +20,10 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS ,
                 WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-        }
+
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.gray)
+        }
 
         val toolbar = findViewById<Toolbar>(R.id.main_toolbar)
         setSupportActionBar(toolbar)

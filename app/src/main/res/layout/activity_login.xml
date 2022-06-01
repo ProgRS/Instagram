@@ -57,7 +57,7 @@
         android:inputType="textPassword"
         android:autofillHints="@null"/>
     </com.google.android.material.textfield.TextInputLayout>
-    <co.tiagoaguiar.course.instagram.login.view.LoadingButton
+    <co.tiagoaguiar.course.instagram.commom.view.LoadingButton
        android:id="@+id/login_btn_enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,6 +98,7 @@
     <TextView
         android:text="@string/does_not_have_account"
         android:id="@+id/login_txt_register"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
