@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.course.instagram.R
 
-class FragmentHome : Fragment (){
+class HomeFragment : Fragment (){
 
     override fun onCreateView(
         inflater: LayoutInflater,
