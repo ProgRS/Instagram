@@ -173,4 +173,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/profile_txt_empty"
+        android:text="@string/empty_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </FrameLayout>
