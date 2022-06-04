@@ -1,4 +1,4 @@
-package co.tiagoaguiar.course.instagram.profile.view
+package co.tiagoaguiar.course.instagram.profile
 
 import co.tiagoaguiar.course.instagram.commom.base.BasePresenter
 import co.tiagoaguiar.course.instagram.commom.base.BaseView
@@ -8,6 +8,7 @@ import co.tiagoaguiar.course.instagram.commom.model.UserAuth
 interface Profile {
 
     interface Presenter: BasePresenter{
+        var state: UserAuth?
         fun fetchUserProfile()
         fun fetchUserPosts()
 

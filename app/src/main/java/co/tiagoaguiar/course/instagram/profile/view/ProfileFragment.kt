@@ -9,15 +9,20 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.course.instagram.R
 import co.tiagoaguiar.course.instagram.commom.base.BaseFragment
+import co.tiagoaguiar.course.instagram.commom.base.DependencyInjector
 import co.tiagoaguiar.course.instagram.commom.model.Post
 import co.tiagoaguiar.course.instagram.commom.model.UserAuth
 import co.tiagoaguiar.course.instagram.databinding.FragmentProfileBinding
+import co.tiagoaguiar.course.instagram.profile.Profile
+import co.tiagoaguiar.course.instagram.profile.presenter.ProfilePresenter
 
 class ProfileFragment
     : BaseFragment<FragmentProfileBinding ,Profile.Presenter>(
     R.layout.fragment_profile,
     FragmentProfileBinding::bind
     ), Profile.View{
+
+
     override fun showProgress(enabled: Boolean) {
         binding?.profileProgress?.visibility = if(enabled) View.VISIBLE else View.GONE
     }
@@ -55,10 +60,21 @@ class ProfileFragment
     //override lateinit var  presenter: Profile.Presenter
 
     override fun setupPresenter() {
-        //TODO:presenter = ProfilePresenter(this, repository)
+        val repository = DependencyInjector.profileRepository()
+        presenter = ProfilePresenter(this, repository)
     }
 
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null){
+          val state = savedInstanceState.getParcelable<UserAuth>("myState")
+            state?.let{
+                displayUserProfile(it)
+            }
+        }
+
+        super.onViewStateRestored(savedInstanceState)
+    }
 
     override fun setupViews() {
         binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(),3)
@@ -66,6 +82,12 @@ class ProfileFragment
 
         presenter.fetchUserProfile()
         presenter.fetchUserPosts()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelable("myState", presenter.state)
+        super.onSaveInstanceState(outState)
+
     }
 
     override fun getMenu(): Int {
