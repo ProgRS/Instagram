@@ -1,12 +1,8 @@
 package co.tiagoaguiar.course.instagram.profile.view
 
-import android.os.Bundle
 import android.view.*
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.course.instagram.R
 import co.tiagoaguiar.course.instagram.commom.base.BaseFragment
 import co.tiagoaguiar.course.instagram.commom.base.DependencyInjector
@@ -35,6 +31,8 @@ class ProfileFragment
         binding?.profileTxtFollowersCount?.text = userAuth.followersCount.toString()
         binding?.profileTxtUsername?.text = userAuth.name
         binding?.profileTxtBio?.text = "TODO"
+
+
         presenter.fetchUserPosts()
 
     }
@@ -62,32 +60,17 @@ class ProfileFragment
     override fun setupPresenter() {
         val repository = DependencyInjector.profileRepository()
         presenter = ProfilePresenter(this, repository)
+
     }
 
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        if(savedInstanceState != null){
-          val state = savedInstanceState.getParcelable<UserAuth>("myState")
-            state?.let{
-                displayUserProfile(it)
-            }
-        }
-
-        super.onViewStateRestored(savedInstanceState)
-    }
 
     override fun setupViews() {
         binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(),3)
         binding?.profileRv?.adapter = adapter
 
-        presenter.fetchUserProfile()
-        presenter.fetchUserPosts()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putParcelable("myState", presenter.state)
-        super.onSaveInstanceState(outState)
-
+         presenter.fetchUserProfile()
+       // presenter.fetchUserPosts()
     }
 
     override fun getMenu(): Int {

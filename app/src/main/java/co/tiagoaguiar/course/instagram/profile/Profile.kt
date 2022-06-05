@@ -8,10 +8,8 @@ import co.tiagoaguiar.course.instagram.commom.model.UserAuth
 interface Profile {
 
     interface Presenter: BasePresenter{
-        var state: UserAuth?
         fun fetchUserProfile()
         fun fetchUserPosts()
-
     }
 
     interface View: BaseView<Presenter>{
