@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/button_background_circle.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/button_background_circle_disabled.xml" value="0.1" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/button_background_circle_enabled.xml" value="0.1" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/edit_text_background.xml" value="0.1" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/drawable/ic_close.xml" value="0.1" />
@@ -22,6 +25,7 @@
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/activity_splash.xml" value="0.1590678824721378" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/button_loading.xml" value="0.25" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/dialog_custom.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_add.xml" value="0.15602836879432624" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_camera.xml" value="0.13796296296296295" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/Users/Fernando/ProjetosAndroid/Instagram/app/src/main/res/layout/fragment_home.xml" value="0.11851851851851852" />
