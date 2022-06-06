@@ -47,7 +47,7 @@ class AddFragment : BaseFragment<FragmentAddBinding, Add.Presenter>(
                 }
 
                 override fun onTabReselected(tab: TabLayout.Tab?) {
-                   
+
                 }
 
             })
