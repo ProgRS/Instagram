@@ -1,5 +1,6 @@
 package co.tiagoaguiar.course.instagram.commom.model
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
@@ -9,8 +10,9 @@ data class UserAuth(
     val name: String,
     val email: String,
     val password: String,
+    val photoUri: Uri?,
     val postCount: Int = 0,
     val followingCount: Int = 0,
     val followersCount: Int = 0,
 
-)
+    )

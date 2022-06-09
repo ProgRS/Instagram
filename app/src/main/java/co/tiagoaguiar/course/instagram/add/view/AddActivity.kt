@@ -71,7 +71,9 @@ class AddActivity : AppCompatActivity(), Add.View {
     }
 
     override fun displayRequestSuccess() {
-       finish()
+
+        setResult(RESULT_OK)
+        finish()
     }
 
     override fun displayRequestFailure(message: String) {

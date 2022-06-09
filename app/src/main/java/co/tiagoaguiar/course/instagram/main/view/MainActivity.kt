@@ -9,8 +9,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import co.tiagoaguiar.course.instagram.R
-import co.tiagoaguiar.course.instagram.add.view.AddFragment
-import co.tiagoaguiar.course.instagram.add.view.CameraFragment
+import co.tiagoaguiar.course.instagram.post.view.AddFragment
 import co.tiagoaguiar.course.instagram.commom.extension.replaceFragment
 import co.tiagoaguiar.course.instagram.databinding.ActivityMainBinding
 import co.tiagoaguiar.course.instagram.home.view.HomeFragment
@@ -19,14 +18,14 @@ import co.tiagoaguiar.course.instagram.search.view.SearchFragment
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, AddFragment.AddListener{
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var homeFragment: Fragment
+    private lateinit var homeFragment: HomeFragment
     private lateinit var searchFragment: Fragment
     private lateinit var addFragment: Fragment
-    private lateinit var profileFragment: Fragment
+    private lateinit var profileFragment: ProfileFragment
     private   var currentFragment: Fragment? = null
 
     private lateinit var  fragmentSavedState: HashMap<String, Fragment.SavedState?>
@@ -127,4 +126,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         return true
     }
+
+    override fun onPostCreated() {
+        homeFragment.presenter.clear()
+
+        if(supportFragmentManager.findFragmentByTag(profileFragment.javaClass.simpleName) != null)
+            profileFragment.presenter.clear()
+
+        binding.mainBottomNav.selectedItemId = R.id.menu_bottom_home
+    }
+
+
 }

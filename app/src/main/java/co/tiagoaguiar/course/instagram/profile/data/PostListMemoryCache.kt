@@ -1,9 +1,10 @@
 package co.tiagoaguiar.course.instagram.profile.data
 
+import co.tiagoaguiar.course.instagram.commom.base.Cache
 import co.tiagoaguiar.course.instagram.commom.model.Post
 
 
-object PostListMemoryCache : ProfileCache<List<Post>> {
+object PostListMemoryCache : Cache<List<Post>> {
 
     private var posts: List<Post>? = null
 
@@ -15,7 +16,7 @@ object PostListMemoryCache : ProfileCache<List<Post>> {
         return  posts
     }
 
-    override fun put(data: List<Post>) {
+    override fun put(data: List<Post>?) {
        posts = data
     }
 

@@ -19,11 +19,29 @@ class ProfileFragment
     ), Profile.View{
 
 
+
+
+    override  lateinit var presenter: Profile.Presenter
+
+    private val adapter =PostAdapter()
+
+    override fun setupPresenter() {
+        val repository = DependencyInjector.profileRepository()
+        presenter = ProfilePresenter(this, repository)
+
+    }
+
+    override fun setupViews() {
+        binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(),3)
+        binding?.profileRv?.adapter = adapter
+
+        presenter.fetchUserProfile()
+        // presenter.fetchUserPosts()
+    }
+
     override fun showProgress(enabled: Boolean) {
         binding?.profileProgress?.visibility = if(enabled) View.VISIBLE else View.GONE
     }
-
-    private val adapter =PostAdapter()
 
     override fun displayUserProfile(userAuth: UserAuth) {
         binding?.profileTxtPostsCount?.text = userAuth.postCount.toString()
@@ -31,6 +49,7 @@ class ProfileFragment
         binding?.profileTxtFollowersCount?.text = userAuth.followersCount.toString()
         binding?.profileTxtUsername?.text = userAuth.name
         binding?.profileTxtBio?.text = "TODO"
+        binding?.profileImgIcon?.setImageURI(userAuth.photoUri)
 
 
         presenter.fetchUserPosts()
@@ -53,28 +72,18 @@ class ProfileFragment
         adapter.notifyDataSetChanged()
     }
 
-    override  lateinit var presenter: Profile.Presenter
+
 
     //override lateinit var  presenter: Profile.Presenter
 
-    override fun setupPresenter() {
-        val repository = DependencyInjector.profileRepository()
-        presenter = ProfilePresenter(this, repository)
-
-    }
-
-
-
-    override fun setupViews() {
-        binding?.profileRv?.layoutManager = GridLayoutManager(requireContext(),3)
-        binding?.profileRv?.adapter = adapter
-
-         presenter.fetchUserProfile()
-       // presenter.fetchUserPosts()
-    }
 
     override fun getMenu(): Int {
         return R.menu.menu_profile
     }
+
+
+
+
+
 
 }

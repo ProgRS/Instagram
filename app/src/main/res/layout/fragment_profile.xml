@@ -20,17 +20,15 @@
 
         android:id="@+id/profile_img_icon"
         android:src="@drawable/ic_insta_profile_thin"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         app:civ_border_color="@color/gray"
         app:civ_border_width="1dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-
         app:layout_constraintStart_toStartOf="parent"
-
         app:civ_circle_background_color="@color/gray_darker"
-        android:layout_height="wrap_content" />
+        android:layout_height="80dp" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
