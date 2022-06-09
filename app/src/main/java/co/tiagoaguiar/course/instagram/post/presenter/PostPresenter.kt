@@ -1,5 +1,6 @@
 package co.tiagoaguiar.course.instagram.post.presenter
 
+import android.net.Uri
 import android.util.Patterns
 import co.tiagoaguiar.course.instagram.R
 import co.tiagoaguiar.course.instagram.commom.base.RequestCallback
@@ -22,8 +23,11 @@ class PostPresenter(
     private val repository: PostRepository
 ) : Post.Presenter, CoroutineScope{
 
+    private var uri: Uri? = null
+
     private val job = Job()
     override val coroutineContext: CoroutineContext = job + Dispatchers.IO
+
 
     override fun fetchPictures() {
 
@@ -47,5 +51,12 @@ class PostPresenter(
        view = null
     }
 
+    override fun selectUri(uri: Uri) {
+        this.uri = uri
+    }
+
+    override fun getSelectedUri(): Uri? {
+        return uri
+    }
 
 }

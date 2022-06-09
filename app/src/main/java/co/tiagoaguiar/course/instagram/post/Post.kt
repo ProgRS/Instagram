@@ -9,7 +9,8 @@ import co.tiagoaguiar.course.instagram.commom.model.UserAuth
 interface Post {
 
     interface Presenter : BasePresenter{
-
+        fun selectUri(uri: Uri)
+        fun getSelectedUri(): Uri?
         fun fetchPictures()
     }
 

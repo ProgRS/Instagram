@@ -4,7 +4,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.GridLayoutManager
 import co.tiagoaguiar.course.instagram.R
 import co.tiagoaguiar.course.instagram.commom.base.BaseFragment
@@ -24,12 +26,15 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding, Post.Presenter>(
 
         binding?.galleryImgSelected?.setImageURI(uri)
         binding?.galleryNested?.smoothScrollTo(0,0)
+        presenter.selectUri(uri)
     }
 
     override fun setupPresenter() {
         presenter = PostPresenter(this, DependencyInjector.postRepository(requireContext()))
 
     }
+
+    override fun getMenu(): Int = R.menu.menu_send
 
     override fun setupViews() {
         binding?.galleryRv?.layoutManager = GridLayoutManager(requireContext(),3)
@@ -50,6 +55,7 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding, Post.Presenter>(
         adapter.notifyDataSetChanged()
         binding?.galleryImgSelected?.setImageURI(posts.first())
         binding?.galleryNested?.smoothScrollTo(0,0)
+        presenter.selectUri(posts.first())
 
     }
 
@@ -62,5 +68,13 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding, Post.Presenter>(
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_send ->{
+                setFragmentResult("takePhotoKey", bundleOf("uri" to presenter.getSelectedUri()))
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 }
