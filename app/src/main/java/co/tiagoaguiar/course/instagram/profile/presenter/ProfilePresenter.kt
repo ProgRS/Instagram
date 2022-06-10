@@ -11,6 +11,7 @@ import co.tiagoaguiar.course.instagram.profile.data.ProfileRepository
 import co.tiagoaguiar.course.instagram.register.RegisterEmail
 import co.tiagoaguiar.course.instagram.register.data.RegisterCallback
 import co.tiagoaguiar.course.instagram.register.data.RegisterRepository
+import java.util.*
 
 
 class ProfilePresenter(
@@ -23,9 +24,9 @@ class ProfilePresenter(
     }
 
 
-    override fun fetchUserProfile() {
+    override fun fetchUserProfile(uuid: String?) {
         view?.showProgress(true)
-            repository.fetchUserProfile(object : RequestCallback<UserAuth>{
+            repository.fetchUserProfile(uuid, object : RequestCallback<UserAuth>{
                 override fun onSuccess(data: UserAuth) {
 
                         view?.displayUserProfile(data)
@@ -44,9 +45,9 @@ class ProfilePresenter(
 
 
 
-    override fun fetchUserPosts() {
+    override fun fetchUserPosts(uuid: String?) {
         val userUUID = Database.sessionAuth?.uuid ?: throw RuntimeException("user not found")
-            repository.fetchUserPosts( object : RequestCallback<List<Post>>{
+            repository.fetchUserPosts(uuid,  object : RequestCallback<List<Post>>{
                 override fun onSuccess(data: List<Post>) {
                    if(data.isEmpty()){
                        view?.displayEmptyPosts()

@@ -10,7 +10,9 @@ import co.tiagoaguiar.course.instagram.R
 import co.tiagoaguiar.course.instagram.commom.model.UserAuth
 import co.tiagoaguiar.course.instagram.profile.view.PostAdapter
 
-class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+class SearchAdapter(
+    private val itemClick:(String) -> Unit
+) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     var items: List<UserAuth> = mutableListOf()
 
@@ -29,10 +31,14 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     }
 
 
-     class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: UserAuth) {
             itemView.findViewById<ImageView>(R.id.search_img_user).setImageURI(user.photoUri)
             itemView.findViewById<TextView>(R.id.search_txt_username).text = user.name
+            itemView.setOnClickListener{
+
+                itemClick.invoke(user.uuid)
+            }
         }
     }
 

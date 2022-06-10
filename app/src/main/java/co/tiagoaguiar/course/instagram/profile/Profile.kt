@@ -4,12 +4,13 @@ import co.tiagoaguiar.course.instagram.commom.base.BasePresenter
 import co.tiagoaguiar.course.instagram.commom.base.BaseView
 import co.tiagoaguiar.course.instagram.commom.model.Post
 import co.tiagoaguiar.course.instagram.commom.model.UserAuth
+import java.util.*
 
 interface Profile {
 
     interface Presenter: BasePresenter{
-        fun fetchUserProfile()
-        fun fetchUserPosts()
+        fun fetchUserProfile(uuid: String?)
+        fun fetchUserPosts(uuid: String?)
         fun clear()
 
     }
