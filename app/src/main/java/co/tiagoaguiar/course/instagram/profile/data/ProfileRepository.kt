@@ -62,4 +62,26 @@ class ProfileRepository(private val dataSourceFactory: ProfileDataSourceFactory)
 
         })
     }
+
+    fun followUser(uuid: String?, follow: Boolean, calback:RequestCallback<Boolean>){
+        val localDataSource = dataSourceFactory.createLocalDataSource()
+        val userId = uuid ?: localDataSource.fetchSession().uuid
+        val dataSource = dataSourceFactory.createRemoteDataSource()
+
+        dataSource.followUser(userId, follow, object : RequestCallback<Boolean> {
+            override fun onSuccess(data: Boolean) {
+                    calback.onSuccess(data)
+            }
+
+            override fun onFailure(message: String) {
+                calback.onFailure(message)
+            }
+
+            override fun onComplete() {
+                calback.onComplete()
+            }
+
+        })
+    }
+
 }
