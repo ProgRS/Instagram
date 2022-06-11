@@ -13,32 +13,34 @@ object Database {
 
     var sessionAuth: UserAuth? = null
 
+
     init {
-        val userA = UserAuth(UUID.randomUUID().toString(), "UserA","userA@gmail.com", "12345678", Uri.fromFile(
-            File("/storage/self/primary/Android/media/co.tiagoaguiar.course.instagram/Instagram/2022-06-07-16-17-56-833.jpg")
-        ))
-        val userB = UserAuth(UUID.randomUUID().toString(), "UserB","userB@gmail.com", "87654321", Uri.fromFile(
-            File("/storage/self/primary/Android/media/co.tiagoaguiar.course.instagram/Instagram/2022-06-07-16-17-56-833.jpg")
-        ))
+
+        val userA = UserAuth(UUID.randomUUID().toString(), "UserA","userA@gmail.com", "12345678", null)
+
+       // val userB = UserAuth(UUID.randomUUID().toString(), "UserB","userB@gmail.com", "87654321", Uri.fromFile(
+        //    File("/storage/self/primary/Android/media/co.tiagoaguiar.course.instagram/Instagram/2022-06-07-16-17-56-833.jpg")
+       // ))
         usersAuth.add(userA)
-        usersAuth.add(userB)
+       // usersAuth.add(userB)
 
-        followers[userA.uuid] = hashSetOf()
-        posts[userA.uuid] = hashSetOf()
-        feeds[userA.uuid] = hashSetOf()
+       // followers[userA.uuid] = hashSetOf()
+       // posts[userA.uuid] = hashSetOf()
+        // feeds[userA.uuid] = hashSetOf()
 
-        followers[userB.uuid] = hashSetOf()
-        posts[userB.uuid] = hashSetOf()
-        feeds[userB.uuid] = hashSetOf()
+      //  followers[userB.uuid] = hashSetOf()
+      //  posts[userB.uuid] = hashSetOf()
+      //  feeds[userB.uuid] = hashSetOf()
 
 
-        for(i in 0..30){
-            val user = UserAuth(UUID.randomUUID().toString(), "User$i", "user$i@gmail.com","123123123",null)
-            usersAuth.add(user)
-        }
+        //for(i in 0..30){
+        //    val user = UserAuth(UUID.randomUUID().toString(), "User$i", "user$i@gmail.com","123123123",null)
+        //    usersAuth.add(user)
+       // }
+
 
         sessionAuth = usersAuth.first()
 
-        followers[sessionAuth!!.uuid]?.add(usersAuth[2].uuid)
+       // followers[sessionAuth!!.uuid]?.add(usersAuth[2].uuid)
     }
 }
