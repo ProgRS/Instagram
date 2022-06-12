@@ -5,6 +5,7 @@ import co.tiagoaguiar.course.instagram.commom.base.RequestCallback
 import co.tiagoaguiar.course.instagram.commom.model.Database
 import co.tiagoaguiar.course.instagram.commom.model.Post
 import co.tiagoaguiar.course.instagram.commom.model.UserAuth
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomeLocalDataSource( private val feedCache: Cache<List<Post>>) : HomeDataSource {
@@ -22,8 +23,8 @@ class HomeLocalDataSource( private val feedCache: Cache<List<Post>>) : HomeDataS
         callback.onComplete()
     }
 
-    override fun fetchSession(): UserAuth {
-       return Database.sessionAuth?: throw RuntimeException("usuario não logado!!!")
+    override fun fetchSession(): String {
+       return FirebaseAuth.getInstance().uid?: throw RuntimeException("usuario não logado!!!")
     }
 
     override fun putFeed(response: List<Post>?) {
